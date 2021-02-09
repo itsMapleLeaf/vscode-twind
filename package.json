@@ -6,10 +6,6 @@
   "author": "lightyen",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/lightyen/vscode-tailwindcss-twin.git"
