@@ -1,16 +1,18 @@
 {
-  "name": "tailwindcss-intellisense-twin",
-  "displayName": "Tailwind Twin IntelliSense",
-  "description": "Tailwind VSCode Extension for twin.macro",
-  "version": "0.4.5",
-  "author": "lightyen",
+  "name": "twind-intellisense",
+  "displayName": "Twind IntelliSense",
+  "description": "VSCode Extension for twind, a TailwindCSS-in-JS library",
+  "version": "0.1.0",
+  "author": "itsMapleLeaf",
+  "contributors": [
+    "lightyen"
+  ],
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/lightyen/vscode-tailwindcss-twin.git"
+    "url": "https://github.com/itsMapleLeaf/vscode-twind.git"
   },
-  "publisher": "lightyen",
   "categories": [
     "Programming Languages"
   ],
@@ -19,11 +21,9 @@
     "tailwindcss",
     "autocomplete",
     "intellisense",
-    "twin",
-    "twin.macro",
+    "twind",
     "css-in-js",
     "react",
-    "babel-macro",
     "javascript",
     "typescript"
   ],
@@ -40,13 +40,12 @@
   "main": "./dist/extension",
   "scripts": {
     "test": "jest",
-    "doit": "yarn upgrade-interactive --latest",
     "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack.config.ts",
     "watch": "cross-env NODE_ENV=development TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack.config.ts --watch",
-    "vscode:prepublish": "yarn build",
+    "vscode:prepublish": "pnpm run build",
     "format": "prettier --write \"**/*.{ts,json,yml}\"",
     "check-format": "prettier --check \"**/*.{ts,json,yml}\"",
-    "package": "vsce package --yarn"
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
@@ -79,7 +78,7 @@
   },
   "contributes": {
     "configuration": {
-      "title": "Tailwind Twin IntelliSense",
+      "title": "Twind IntelliSense",
       "properties": {
         "tailwindcss.colorDecorators": {
           "type": [
