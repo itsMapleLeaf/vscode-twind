@@ -1,6 +1,6 @@
+import ts from "typescript"
 import * as lsp from "vscode-languageserver"
 import { TextDocument } from "vscode-languageserver-textdocument"
-import ts from "typescript"
 import { Token } from "./types"
 
 // https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers
@@ -194,31 +194,28 @@ function checkImportTwin(source: ts.SourceFile): Features {
 	source.forEachChild(node => {
 		if (ts.isImportDeclaration(node)) {
 			const token = find(source, node, ts.isStringLiteral)
-			if (token?.text === "twin.macro") {
+			if (token?.text === "twind") {
 				twProp = true
 				const clause = find(source, node, ts.isImportClause)
 				if (clause) {
-					const first = clause.getChildAt(0, source)
-					if (first?.getText(source) === "tw") {
-						twTemplate = true
-					}
-					if (!themeTemplate) {
-						const namedImports = find(source, clause, ts.isNamedImports)
-						if (namedImports) {
-							namedImports.forEachChild(node => {
-								if (ts.isImportSpecifier(node)) {
-									if (node.getFirstToken(source)?.getText(source) === "theme") {
-										themeTemplate = "theme"
-									}
-									if (themeTemplate) {
-										const b = node.getLastToken(source)
-										if (b) themeTemplate = b.getText(source)
-										return true
-									}
+					const namedImports = find(source, clause, ts.isNamedImports)
+					if (namedImports) {
+						namedImports.forEachChild(node => {
+							if (ts.isImportSpecifier(node)) {
+								if (node.getFirstToken(source)?.getText(source) === "tw") {
+									twTemplate = true
 								}
-								return undefined
-							})
-						}
+								if (node.getFirstToken(source)?.getText(source) === "theme") {
+									themeTemplate = "theme"
+								}
+								if (themeTemplate) {
+									const b = node.getLastToken(source)
+									if (b) themeTemplate = b.getText(source)
+									return true
+								}
+							}
+							return undefined
+						})
 					}
 				}
 			}
