@@ -54,3 +54,10 @@ Provides intellisense for [twind](https://github.com/tw-in-js/twind), tweaked fr
 	},
 }
 ```
+
+## Packaging
+
+1. Clone the repo
+1. Run `yarn`
+1. Run `yarn package`
+1. Right-click on the generated `*.vsix` file in the vscode explorer, then "Install Extension VSIX". Alternatively, drag it into the vscode window
