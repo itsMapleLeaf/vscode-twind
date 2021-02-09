@@ -1,6 +1,6 @@
 # Twind Intellisense
 
-Provides intellisense for [twind](https://github.com/tw-in-js/twind)
+Provides intellisense for [twind](https://github.com/tw-in-js/twind), tweaked from [vscode-tailwindcss-twin](https://github.com/lightyen/vscode-tailwindcss-twin)
 
 ## VS Code Settings
 
