@@ -1,5 +1,5 @@
 {
-  "name": "twind-intellisense",
+  "name": "vscode-twind",
   "displayName": "Twind IntelliSense",
   "description": "VSCode Extension for twind, a TailwindCSS-in-JS library",
   "version": "0.1.0",
