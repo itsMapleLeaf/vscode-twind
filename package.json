@@ -4,6 +4,11 @@
   "description": "VSCode Extension for twind, a TailwindCSS-in-JS library",
   "version": "0.1.0",
   "author": "itsMapleLeaf",
+  "publisher": "itsMapleLeaf",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "contributors": [
     "lightyen"
   ],
@@ -42,10 +47,10 @@
     "test": "jest",
     "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack.config.ts",
     "watch": "cross-env NODE_ENV=development TS_NODE_PROJECT=tsconfig.webpack.json webpack --config webpack.config.ts --watch",
-    "vscode:prepublish": "pnpm run build",
+    "vscode:prepublish": "yarn build",
     "format": "prettier --write \"**/*.{ts,json,yml}\"",
     "check-format": "prettier --check \"**/*.{ts,json,yml}\"",
-    "package": "vsce package"
+    "package": "vsce package --yarn"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
